@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "752022280884",
+    "project_id": "snapstream-bfe7b",
+    "storage_bucket": "snapstream-bfe7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752022280884:android:475446e2951d28d80f55e1",
+        "android_client_info": {
+          "package_name": "com.ahmed.personal.snap_stream"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752022280884-n11mmoii81igtcjfg5rfgscbk921abfa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQEe78HZht-Unz7BY6BM_q3LS023vfr9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752022280884-n11mmoii81igtcjfg5rfgscbk921abfa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
