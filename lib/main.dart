@@ -2,8 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:snap_stream/firebase_options.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:snap_stream/providers/is_loading.dart';
 import 'package:snap_stream/state/auth/notifiers/auth_state_notifier.dart';
 import 'package:snap_stream/state/auth/providers/is_logged_in_provider.dart';
+import 'package:snap_stream/views/components/loading/loading_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,8 +20,23 @@ class MainApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       theme: ThemeData.dark(useMaterial3: true),
-      home:
-          ref.watch(isLoggedInProvider) ? const MainView() : const LoginView(),
+      home: Consumer(
+        builder: (context, ref, child) {
+          ref.listen<bool>(isLoadingProvider, (_, isLoading) {
+            if (isLoading) {
+              LoadingScreen.instance().show(context: context);
+            } else {
+              LoadingScreen.instance().hide();
+            }
+          });
+
+          if (ref.watch(isLoggedInProvider)) {
+            return const MainView();
+          } else {
+            return const LoginView();
+          }
+        },
+      ),
     );
   }
 }
