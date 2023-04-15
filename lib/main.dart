@@ -6,6 +6,7 @@ import 'package:snap_stream/providers/is_loading.dart';
 import 'package:snap_stream/state/auth/notifiers/auth_state_notifier.dart';
 import 'package:snap_stream/state/auth/providers/is_logged_in_provider.dart';
 import 'package:snap_stream/views/components/loading/loading_screen.dart';
+import 'package:snap_stream/views/login/login_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,26 +58,6 @@ class MainView extends ConsumerWidget {
               ref.read(authStateNotifierProvider.notifier).logout();
             },
             child: const Text('logout'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class LoginView extends ConsumerWidget {
-  const LoginView({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      body: Column(
-        children: [
-          TextButton(
-            onPressed: () {
-              ref.read(authStateNotifierProvider.notifier).loginWithGoogle();
-            },
-            child: const Text('Login'),
           ),
         ],
       ),
