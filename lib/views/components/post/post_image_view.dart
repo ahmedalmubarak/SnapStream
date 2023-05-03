@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:snap_stream/state/posts/models/post.dart';
 
 class PostImageView extends StatelessWidget {
@@ -17,8 +18,20 @@ class PostImageView extends StatelessWidget {
         fit: BoxFit.cover,
         loadingBuilder: (context, child, loadingProgress) {
           if (loadingProgress == null) return child;
-          return const Center(
-            child: CircularProgressIndicator(),
+          return Center(
+            child: Shimmer.fromColors(
+              baseColor: Colors.black54,
+              highlightColor: Colors.black12,
+              child: Column(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height * 0.65,
+                    color: Colors.black,
+                  ),
+                ],
+              ),
+            ),
           );
         },
       ),

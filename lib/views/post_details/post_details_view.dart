@@ -8,7 +8,6 @@ import 'package:snap_stream/state/posts/providers/can_current_user_delete_post_p
 import 'package:snap_stream/state/posts/providers/delete_post_provider.dart';
 import 'package:snap_stream/state/posts/providers/specific_post_with_comments_provider.dart';
 import 'package:snap_stream/views/components/animations/error_animation_view.dart';
-import 'package:snap_stream/views/components/animations/loading_animation_view.dart';
 import 'package:snap_stream/views/components/animations/small_error_animation_view.dart';
 import 'package:snap_stream/views/components/comment/compact_comments_column.dart';
 import 'package:snap_stream/views/components/dialogs/alert_dialog_model.dart';
@@ -18,6 +17,7 @@ import 'package:snap_stream/views/components/likes_count_view.dart';
 import 'package:snap_stream/views/components/post/post_date_view.dart';
 import 'package:snap_stream/views/components/post/post_display_name_and_message_view.dart';
 import 'package:snap_stream/views/components/post/post_image_or_video_view.dart';
+import 'package:snap_stream/views/components/shimmers/post_detail_shimmer.dart';
 import 'package:snap_stream/views/constants/strings.dart';
 import 'package:snap_stream/views/post_comments/post_comments_view.dart';
 
@@ -186,7 +186,8 @@ class _PostDetailsViewState extends ConsumerState<PostDetailsView> {
           return const ErrorAnimationView();
         },
         loading: () {
-          return const LoadingAnimationView();
+          // TODO add shimmer effect
+          return const PostDetailShimmer();
         },
       ),
     );
