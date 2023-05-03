@@ -1,3 +1,3 @@
-# snap_stream (Under construction 🛠️👷🏽🚧)
+# Snap Stream
 
 A new Flutter project.
