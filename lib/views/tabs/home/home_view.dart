@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:snap_stream/state/posts/providers/all_posts_provider.dart';
 import 'package:snap_stream/views/components/animations/empty_contents_with_text_animation_view.dart';
 import 'package:snap_stream/views/components/animations/error_animation_view.dart';
+import 'package:snap_stream/views/components/animations/loading_animation_view.dart';
 import 'package:snap_stream/views/components/post/posts_grid_view.dart';
-import 'package:snap_stream/views/components/shimmers/grid_view_shimmer.dart';
 import 'package:snap_stream/views/constants/strings.dart';
 
 class HomeView extends ConsumerWidget {
@@ -38,8 +38,7 @@ class HomeView extends ConsumerWidget {
           return const ErrorAnimationView();
         },
         loading: () {
-          //TODO: Add shimmer effiect
-          return const ShimmerGridView();
+          return const LoadingAnimationView();
         },
       ),
     );

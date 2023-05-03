@@ -13,8 +13,6 @@ extension Sorting on Iterable<Comment> {
                 return b.createdAt.compareTo(a.createdAt);
               case DateSorting.oldestOnTop:
                 return a.createdAt.compareTo(b.createdAt);
-              default:
-                return b.createdAt.compareTo(a.createdAt);
             }
           },
         );

@@ -43,6 +43,7 @@ class LoginView extends ConsumerWidget {
               const SizedBox(
                 height: 20,
               ),
+
               TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: AppColors.loginButtonColor,

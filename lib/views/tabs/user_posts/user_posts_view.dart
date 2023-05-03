@@ -3,10 +3,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:snap_stream/state/posts/providers/user_posts_provider.dart';
 import 'package:snap_stream/views/components/animations/empty_contents_with_text_animation_view.dart';
 import 'package:snap_stream/views/components/animations/error_animation_view.dart';
+import 'package:snap_stream/views/components/animations/loading_animation_view.dart';
 import 'package:snap_stream/views/components/post/posts_grid_view.dart';
 import 'package:snap_stream/views/constants/strings.dart';
-
-import '../../components/shimmers/grid_view_shimmer.dart';
 
 class UserPostsView extends ConsumerWidget {
   const UserPostsView({Key? key}) : super(key: key);
@@ -39,7 +38,7 @@ class UserPostsView extends ConsumerWidget {
           return const ErrorAnimationView();
         },
         loading: () {
-          return const ShimmerGridView();
+          return const LoadingAnimationView();
         },
       ),
     );

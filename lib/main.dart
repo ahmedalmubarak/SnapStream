@@ -31,7 +31,6 @@ class App extends ConsumerWidget {
     // calculate widget to show
     return MaterialApp(
       darkTheme: ThemeData(
-        useMaterial3: true,
         brightness: Brightness.dark,
         primarySwatch: Colors.blueGrey,
         indicatorColor: Colors.blueGrey,
