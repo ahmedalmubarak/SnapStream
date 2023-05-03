@@ -4,7 +4,6 @@ import 'package:snap_stream/state/auth/providers/auth_state_provider.dart';
 import 'package:snap_stream/views/constants/app_colors.dart';
 import 'package:snap_stream/views/constants/strings.dart';
 import 'package:snap_stream/views/login/divider_with_margins.dart';
-import 'package:snap_stream/views/login/facebook_button.dart';
 import 'package:snap_stream/views/login/google_button.dart';
 import 'package:snap_stream/views/login/login_view_signup_links.dart';
 
