@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart' show immutable;
-
-import '../../posts/typdef/user_id.dart';
-import 'auth_result.dart';
+import 'package:snap_stream/state/auth/models/auth_result.dart';
+import 'package:snap_stream/state/posts/typedefs/user_id.dart';
 
 @immutable
 class AuthState {

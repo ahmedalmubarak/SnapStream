@@ -1,9 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
-import '../../posts/typdef/user_id.dart';
-import '../constants/constants.dart';
-import '../models/auth_result.dart';
+import 'package:snap_stream/state/auth/constants/constants.dart';
+import 'package:snap_stream/state/auth/models/auth_result.dart';
+import 'package:snap_stream/state/posts/typedefs/user_id.dart';
 
 class Authenticator {
   const Authenticator();

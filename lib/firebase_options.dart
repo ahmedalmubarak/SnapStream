@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '752022280884',
     projectId: 'snapstream-bfe7b',
     storageBucket: 'snapstream-bfe7b.appspot.com',
+    androidClientId: '752022280884-nnovffri4gpc52jfo49ugv72uqvqoo99.apps.googleusercontent.com',
     iosClientId: '752022280884-ev80885p46d12oggrummobnj64e5sftd.apps.googleusercontent.com',
     iosBundleId: 'com.ahmed.personal.snapStream',
   );

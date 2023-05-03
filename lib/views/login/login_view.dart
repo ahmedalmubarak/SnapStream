@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:snap_stream/state/auth/notifiers/auth_state_notifier.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:snap_stream/state/auth/providers/auth_state_provider.dart';
+import 'package:snap_stream/views/constants/app_colors.dart';
 import 'package:snap_stream/views/constants/strings.dart';
-import 'package:snap_stream/views/login/components/login_sign_up_link.dart';
-import './components/divider_with_margins.dart';
-import '../../views/constants/app_colors.dart';
-import './components/google_button.dart';
+import 'package:snap_stream/views/login/divider_with_margins.dart';
+import 'package:snap_stream/views/login/facebook_button.dart';
+import 'package:snap_stream/views/login/google_button.dart';
+import 'package:snap_stream/views/login/login_view_signup_links.dart';
 
 class LoginView extends ConsumerWidget {
-  const LoginView({super.key});
+  const LoginView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(Strings.appName),
+        title: const Text(
+          Strings.appName,
+        ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(
                 height: 40,
               ),
+              // header text
               Text(
                 Strings.welcomeToAppName,
                 style: Theme.of(context).textTheme.displaySmall,
@@ -45,13 +49,11 @@ class LoginView extends ConsumerWidget {
                   backgroundColor: AppColors.loginButtonColor,
                   foregroundColor: AppColors.loginButtonTextColor,
                 ),
-                onPressed: ref
-                    .read(authStateNotifierProvider.notifier)
-                    .loginWithGoogle,
+                onPressed: ref.read(authStateProvider.notifier).loginWithGoogle,
                 child: const GoogleButton(),
               ),
               const DividerWithMargins(),
-              const LoginSignUpLink(),
+              const LoginViewSignupLinks(),
             ],
           ),
         ),

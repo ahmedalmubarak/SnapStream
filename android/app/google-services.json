@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "752022280884-n11mmoii81igtcjfg5rfgscbk921abfa.apps.googleusercontent.com",
+          "client_id": "752022280884-nnovffri4gpc52jfo49ugv72uqvqoo99.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ahmed.personal.snap_stream",
+            "certificate_hash": "e3136c6d6ff7ee8ff1eb99f638dbc1dfb619ccf8"
+          }
+        },
+        {
+          "client_id": "752022280884-qkks6i83h6en4a4bcue58dr90d888neu.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -29,6 +37,13 @@
             {
               "client_id": "752022280884-n11mmoii81igtcjfg5rfgscbk921abfa.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "752022280884-ev80885p46d12oggrummobnj64e5sftd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ahmed.personal.snapStream"
+              }
             }
           ]
         }

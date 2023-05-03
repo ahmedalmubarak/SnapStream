@@ -1,10 +1,11 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:snap_stream/state/auth/models/auth_result.dart';
-import 'package:snap_stream/state/auth/notifiers/auth_state_notifier.dart';
+import 'package:snap_stream/state/auth/providers/auth_state_provider.dart';
+
 part 'is_logged_in_provider.g.dart';
 
 @riverpod
 bool isLoggedIn(IsLoggedInRef ref) {
-  final authState = ref.watch(authStateNotifierProvider);
-  return authState.result == AuthResult.success;
+  final authProvider = ref.watch(authStateProvider);
+  return authProvider.result == AuthResult.success;
 }

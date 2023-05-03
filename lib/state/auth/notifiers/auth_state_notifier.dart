@@ -1,36 +1,25 @@
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:snap_stream/state/auth/backend/authenticator.dart';
 import 'package:snap_stream/state/auth/models/auth_result.dart';
 import 'package:snap_stream/state/auth/models/auth_state.dart';
-import 'package:snap_stream/state/posts/typdef/user_id.dart';
+import 'package:snap_stream/state/posts/typedefs/user_id.dart';
 import 'package:snap_stream/state/user_info/backend/user_info_storage.dart';
-part 'auth_state_notifier.g.dart';
 
-@riverpod
-class AuthStateNotifier extends _$AuthStateNotifier {
-  @override
-  AuthState build() {
-    return _init();
-  }
-
+class AuthStateNotifier extends StateNotifier<AuthState> {
   final _authenticator = const Authenticator();
   final _userInfoStorage = const UserInfoStorage();
 
-  AuthState _init() {
+  AuthStateNotifier() : super(const AuthState.unknown()) {
     if (_authenticator.isAlreadyLoggedIn) {
       state = AuthState(
         result: AuthResult.success,
         isLoading: false,
         userId: _authenticator.userId,
       );
-      return state;
-    } else {
-      state = const AuthState.unknown();
-      return state;
     }
   }
 
-  Future<void> logout() async {
+  Future<void> logOut() async {
     state = state.copiedWithIsLoading(true);
     await _authenticator.logOut();
     state = const AuthState.unknown();
@@ -41,16 +30,18 @@ class AuthStateNotifier extends _$AuthStateNotifier {
     final result = await _authenticator.loginWithGoogle();
     final userId = _authenticator.userId;
     if (result == AuthResult.success && userId != null) {
-      await _saveUSerInfo(userId: userId);
+      await saveUserInfo(userId: userId);
     }
     state = AuthState(
       result: result,
       isLoading: false,
-      userId: userId,
+      userId: _authenticator.userId,
     );
   }
 
-  Future<void> _saveUSerInfo({required UserId userId}) =>
+  Future<void> saveUserInfo({
+    required UserId userId,
+  }) =>
       _userInfoStorage.saveUserInfo(
         userId: userId,
         displayName: _authenticator.displayName,
